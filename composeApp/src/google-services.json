@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "853787459533",
+    "project_id": "cloudgallery-de527",
+    "storage_bucket": "cloudgallery-de527.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:853787459533:android:684014a704301123c84e84",
+        "android_client_info": {
+          "package_name": "pl.zajecia.cloud.cloudgallery"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqvlpRkth75XIwk2uKbq-ntOUyxlMzwtI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
