@@ -73,6 +73,8 @@ kotlin {
             implementation(libs.firebase.crashlytics)
             implementation(libs.firebase.analytics)
             implementation(libs.firebase.storage)
+            implementation(libs.firebase.auth.ktx)
+            implementation(libs.firebase.firestore.ktx)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -101,6 +103,12 @@ kotlin {
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutines.swing)
+            implementation(project.dependencies.platform(libs.firebase.bom))
+            implementation(libs.firebase.crashlytics)
+            implementation(libs.firebase.analytics)
+            implementation(libs.firebase.storage)
+            implementation(libs.firebase.auth.ktx)
+            implementation(libs.firebase.firestore.ktx)
         }
         iosMain.dependencies {
             implementation(project.dependencies.platform(libs.koin.bom))
