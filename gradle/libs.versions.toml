@@ -23,10 +23,11 @@ splash-screen = "1.2.0-alpha02"
 paging = "3.3.0-alpha02-0.5.1"
 google-services = "4.4.2"
 firebase-bom = "33.7.0"
-crashlytics-gradle = "3.0.2"
 lifecycle = "2.8.4"
 navigation = "2.8.0-alpha10"
 logback = "1.5.11"
+gitlive = "2.1.0"
+javasdk = "0.4.7"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -59,12 +60,11 @@ ktor-serialization-json = { module = "io.ktor:ktor-serialization-kotlinx-json", 
 ktor-server-core = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor" }
 ktor-server-netty = { module = "io.ktor:ktor-server-netty-jvm", version.ref = "ktor" }
 #FIREBASE
-firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebase-bom" }
-firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics" }
-firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
-firebase-storage = { module = "com.google.firebase:firebase-storage" }
-firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx" }
-firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-firestore-ktx" }
+firebase-analytics = { module = "dev.gitlive:firebase-analytics", version.ref = "gitlive" }
+firebase-storage = { module = "dev.gitlive:firebase-storage", version.ref = "gitlive" }
+firebase-auth-ktx = { module = "dev.gitlive:firebase-auth", version.ref = "gitlive" }
+firebase-firestore-ktx = { module = "dev.gitlive:firebase-firestore", version.ref = "gitlive" }
+firebase-java-sdk = { module = "dev.gitlive:firebase-java-sdk", version.ref = "javasdk"}
 
 
 #OTHER
@@ -91,7 +91,6 @@ compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "
 google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }
 kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotlinParcelization = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "crashlytics-gradle" }
 kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
 kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 ktor = { id = "io.ktor.plugin", version.ref = "ktor" }

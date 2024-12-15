@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.launch
 
 @Composable
 fun LoginScreen(
@@ -17,7 +18,7 @@ fun LoginScreen(
     var loginText by remember { mutableStateOf(TextFieldValue("")) }
     var passwordText by remember { mutableStateOf(TextFieldValue("")) }
     var errorMessage by remember { mutableStateOf<String?>(null) }
-
+    val coroutineScope = rememberCoroutineScope()
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -76,17 +77,19 @@ fun LoginScreen(
                 if (loginText.text.isBlank() || passwordText.text.isBlank()) {
                     errorMessage = "Please fill out all fields."
                 } else {
-                    signInWithEmailAndPassword(
-                        email = loginText.text,
-                        password = passwordText.text,
-                        onResult = { isSuccess, message ->
-                            if (isSuccess) {
-                                onLoginSuccess()
-                            } else {
-                                errorMessage = message
+                    coroutineScope.launch {
+                        signInWithEmailAndPassword(
+                            email = loginText.text,
+                            password = passwordText.text,
+                            onResult = { isSuccess, message ->
+                                if (isSuccess) {
+                                    onLoginSuccess()
+                                } else {
+                                    errorMessage = message
+                                }
                             }
-                        }
-                    )
+                        )
+                    }
                 }
             },
             enabled = loginText.text.isNotBlank() && passwordText.text.isNotBlank(),

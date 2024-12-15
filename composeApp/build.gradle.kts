@@ -11,7 +11,6 @@ plugins {
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.google.services)
-    alias(libs.plugins.crashlytics)
     alias(libs.plugins.kotlinParcelization)
 }
 
@@ -58,7 +57,8 @@ kotlin {
     
     sourceSets {
         val desktopMain by getting
-        
+
+
         androidMain.dependencies {
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
@@ -69,12 +69,6 @@ kotlin {
             implementation(libs.kotlin.coroutines.android)
             implementation(libs.kotlin.coroutines.play)
             implementation(libs.splashscreen)
-            implementation(project.dependencies.platform(libs.firebase.bom))
-            implementation(libs.firebase.crashlytics)
-            implementation(libs.firebase.analytics)
-            implementation(libs.firebase.storage)
-            implementation(libs.firebase.auth.ktx)
-            implementation(libs.firebase.firestore.ktx)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -98,17 +92,16 @@ kotlin {
             implementation(libs.lifecycle.runtime)
             implementation(libs.lifecycle.viewmodel)
             implementation(libs.navigation)
+            implementation(libs.firebase.analytics)
+            implementation(libs.firebase.storage)
+            implementation(libs.firebase.auth.ktx)
+            implementation(libs.firebase.firestore.ktx)
             implementation(projects.shared)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutines.swing)
-            implementation(project.dependencies.platform(libs.firebase.bom))
-            implementation(libs.firebase.crashlytics)
-            implementation(libs.firebase.analytics)
-            implementation(libs.firebase.storage)
-            implementation(libs.firebase.auth.ktx)
-            implementation(libs.firebase.firestore.ktx)
+            implementation(libs.firebase.java.sdk)
         }
         iosMain.dependencies {
             implementation(project.dependencies.platform(libs.koin.bom))
